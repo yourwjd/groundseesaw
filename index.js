@@ -1,49 +1,45 @@
 //헤더
 //내비게이션 바 이동
-const headerMenu = document.querySelectorAll("#header li");
+const headerMenu = document.querySelectorAll("#header nav a");
 
-const about = document.querySelector("#About");
-const exhibition = document.querySelector("#Exhibition");
-const visit = document.querySelector("#Visit");
+const about = document.querySelector("#s2");
+const exhibition = document.querySelector("#s11");
+const visit = document.querySelector("#s15");
 
 headerMenu[0].onclick = function (event) {
     event.preventDefault();
-    logo.scrollIntoView({ behavior: 'smooth' });
+    about.scrollIntoView({ behavior: 'smooth' });
 };
 
 headerMenu[1].onclick = function (event) {
     event.preventDefault();
-    video.scrollIntoView({ behavior: 'smooth' });
+    exhibition.scrollIntoView({ behavior: 'smooth' });
 };
 
 headerMenu[2].onclick = function (event) {
     event.preventDefault();
-    planning.scrollIntoView({ behavior: 'smooth' });
+    visit.scrollIntoView({ behavior: 'smooth' });
 };
 
 
 //헤더 없애기
-var myHeader = document.querySelector("#header"); /*header 변수 할당*/
-var isHeaderVisible = true; /* 헤더가 보이는지 여부를 나타내는 변수 추가 */
-var previousScrollPosition = 0; /* 이전 스크롤 위치를 저장하는 변수 추가 */
+var myHeader = document.querySelector("#header");
+var isHeaderVisible = true; 
+var previousScrollPosition = 0; 
 
-window.addEventListener("scroll", function () { /*스크롤 시*/
-    var currentScrollPosition = window.scrollY; /* 현재 스크롤 위치를 저장 */
+window.addEventListener("scroll", function () {
+    var currentScrollPosition = window.scrollY; 
 
-    if (currentScrollPosition > previousScrollPosition && currentScrollPosition > 1100 && isHeaderVisible) { /*스크롤 y값이 1100이 넘으면*/
-        myHeader.style.top = -150 + "px"; /*헤더 css의 top위치를 -100px 한다*/
+    if (currentScrollPosition > previousScrollPosition && currentScrollPosition > 1100 && isHeaderVisible) { 
+        myHeader.style.top = -150 + "px";
         isHeaderVisible = false;
     }
-    else if ((currentScrollPosition < previousScrollPosition || currentScrollPosition <= 200) && !isHeaderVisible) { /*200을 넘지 않을 시*/
-        myHeader.style.top = 0; /*헤더 css의 top위치를 0px 한다*/
+    else if ((currentScrollPosition < previousScrollPosition || currentScrollPosition <= 200) && !isHeaderVisible) {
+        myHeader.style.top = 0; 
         isHeaderVisible = true;
     }
-    else if (window.pageYOffset < 100 && isHeaderVisible){ /*200을 넘지 않을 시*/
-        myHeader.style.top = -150 + "px"; /*헤더 css의 top위치를 -100px 한다*/
-        isHeaderVisible = false;
-    }
 
-    previousScrollPosition = currentScrollPosition; /* 이전 스크롤 위치 업데이트 */
+    previousScrollPosition = currentScrollPosition; 
 });
 
 
